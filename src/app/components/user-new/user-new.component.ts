@@ -4,7 +4,7 @@ import { User } from '../../models/user.model';
 import { SharedService } from '../../services/shared.service';
 import { UserService } from '../../services/user.service';
 import { ActivatedRoute } from '@angular/router';
-import { ResponseApi } from '../../models/respponse-api';
+import { ResponseApi } from '../../models/response-api';
 
 @Component({
   selector: 'app-user-new',
