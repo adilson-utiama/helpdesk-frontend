@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
+import { DialogService } from '../../dialog.service';
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -16,7 +19,11 @@ export class UserListComponent implements OnInit {
   classCss: {};
   listUser = []; 
 
-  constructor() { 
+  constructor(
+    private dialogService: DialogService,
+    private userService: UserService,
+    private router: Router
+  ) { 
     this.shared = SharedService.getInstance();
   }
 
