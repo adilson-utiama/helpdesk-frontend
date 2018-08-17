@@ -58,6 +58,7 @@ export class UserListComponent implements OnInit {
                type : 'success',
                text : 'Record deleted'
              }); 
+             this.findAll(this.page, this.count);
           }, err => {
             this.showMessage({
               type : 'error',
@@ -65,13 +66,13 @@ export class UserListComponent implements OnInit {
             });
           });
         }
-        this.findAll(this.page, this.count);
+        
       });
   }
 
   setNextPage(event: any){
     event.preventDefault();
-    if((this.page + 1) > this.pages.length){
+    if((this.page + 1) < this.pages.length){
       this.page = this.page + 1;
       this.findAll(this.page, this.count);
     }

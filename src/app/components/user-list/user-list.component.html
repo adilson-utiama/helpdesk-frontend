@@ -12,26 +12,27 @@
     <div class="box-body">
       <table class="table table-bordered">
         <tr>
-          <th style="width: 10px">#</th>
           <th>Email</th>
           <th>Profile</th>
           <th style="width: 10px">&nbsp;</th>
           <th style="width: 10px">&nbsp;</th>
         </tr>
-        <tr>
-          <td>User Email</td>
-          <td>User Profile</td>
-          <td><span class="btn btn-primary">Edit</span></td>
-          <td><span class="btn btn-danger">Delete</span></td>
+        <tr *ngFor="let user of listUser">
+          <td>{{ user.email }}</td>
+          <td>{{ user.profile }}</td>
+          <td><span class="btn btn-primary" (click)="edit(user.id)">Edit</span></td>
+          <td><span class="btn btn-danger" (click)="delete(user.id)">Delete</span></td>
         </tr>
       </table>
     </div>
 
     <div class="box-footer clearfix">
       <ul class="pagination pagination-sm no-margin pull-right">
-        <li><a href="#">&laquo;</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">&raquo;</a></li>
+        <li><a href="" (click)="setPreviousPage($event)">&laquo;</a></li>
+        <li *ngFor="let p of pages; let i = index">
+          <a [ngClass]="{ 'pagination-focus' : i == page }" href="" (click)="setPage(i, $event)">{{ i + 1 }}</a>
+        </li>
+        <li><a href="" (click)="setNextPage($event)">&raquo;</a></li>
       </ul>
     </div>
 
