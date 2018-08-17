@@ -13,6 +13,7 @@ import { SharedService } from './services/shared.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './components/security/auth.interceptor';
+import { AuthGuard } from './components/security/auth.guard';
 
 @NgModule({
   declarations: [
@@ -35,8 +36,10 @@ import { AuthInterceptor } from './components/security/auth.interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
-    }
+      multi: true,
+      
+    },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
