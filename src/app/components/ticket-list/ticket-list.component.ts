@@ -32,7 +32,7 @@ export class TicketListComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.findAll(this.page, this.count);
   }
 
   findAll(page: number, count: number){
