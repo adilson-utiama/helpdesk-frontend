@@ -50,12 +50,14 @@ export class TicketListComponent implements OnInit {
   filter(): void {
     this.page = 0;
     this.count = 5;
+    console.log(this.ticketFilter);
+    
     this.ticketService.findByParams(this.page, this.count, this.assignedToMe, this.ticketFilter)
       .subscribe((responseApi: ResponseApi) => {
         this.ticketFilter.title = this.ticketFilter.title == 'uninformed' ? '' : this.ticketFilter.title;
         this.ticketFilter.number = this.ticketFilter.number == 0 ? null : this.ticketFilter.number;
         this.listTicket = responseApi['data']['content'];
-        this.pages = responseApi['data']['totalPages'];
+        this.pages = new Array(responseApi['data']['totalPages']);
       }, err => {
         this.showMessage({
           type: 'error',
@@ -86,16 +88,20 @@ export class TicketListComponent implements OnInit {
         if(candelete){
           this.message = {};
           this.ticketService.delete(id).subscribe( (responseApi: ResponseApi) => {
+
              this.showMessage({
                type : 'success',
                text : 'Record deleted'
              }); 
+
              this.findAll(this.page, this.count);
           }, err => {
+
             this.showMessage({
               type : 'error',
               text : err['error']['errors'][0]
             });
+
           });
         }
         

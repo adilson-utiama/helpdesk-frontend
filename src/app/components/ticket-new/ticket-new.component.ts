@@ -31,7 +31,7 @@ export class TicketNewComponent implements OnInit {
   ngOnInit() {
     let id: string = this.route.snapshot.params['id'];
     if(id != undefined){
-
+        this.findbyId(id);
     }
   }
 

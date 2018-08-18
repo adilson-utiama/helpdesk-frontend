@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
-import { userInfo } from 'os';
 import { User } from '../../models/user.model';
 
 @Component({
