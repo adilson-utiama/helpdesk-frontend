@@ -18,6 +18,7 @@ import { UserNewComponent } from './components/user-new/user-new.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { DialogService } from './dialog.service';
 import { TicketNewComponent } from './components/ticket-new/ticket-new.component';
+import { TicketService } from './services/ticket.service';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { TicketNewComponent } from './components/ticket-new/ticket-new.component
   ],
   providers: [
     UserService, 
+    TicketService,
     SharedService,
     DialogService,
     {
