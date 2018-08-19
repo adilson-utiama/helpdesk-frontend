@@ -79,7 +79,7 @@ export class TicketListComponent implements OnInit {
   }
 
   detail(id: string){
-    this.router.navigate(['/ticket-detail']);
+    this.router.navigate(['/ticket-detail', id]);
   }
 
   delete(id: string){
